@@ -1,0 +1,360 @@
+/* ===========================
+   Camera UI — style.css
+   =========================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Phone frame ===== */
+.phone-frame {
+  width: 390px;
+  background: #000;
+  border-radius: 48px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ===== Top bar ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 12px;
+  background: #000;
+  position: relative;
+  z-index: 10;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: opacity 0.15s;
+}
+
+.icon-btn:hover { opacity: 0.6; }
+
+/* Live Photo icon */
+.live-photo { position: relative; }
+.live-outer {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+}
+
+/* ZEISS label */
+.zeiss-label {
+  color: #f5a623;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+/* ===== Viewfinder ===== */
+.viewfinder {
+  width: 100%;
+  aspect-ratio: 390 / 430;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.chalkboard {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 30% 40%, #2a5a45 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 70%, #1e4a38 0%, transparent 55%),
+    #1b3d2e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle board texture */
+.chalkboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.04) 2px,
+      rgba(0,0,0,0.04) 4px
+    );
+  pointer-events: none;
+}
+
+/* Dark vignette edges */
+.chalkboard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
+
+.chalk-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Chalk dust texture */
+.chalk-dust {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.02) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+/* Chalk pieces at bottom */
+.chalk-pieces {
+  position: absolute;
+  bottom: 12px;
+  right: 18px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.chalk-piece {
+  display: block;
+  border-radius: 3px;
+  height: 10px;
+  transform: rotate(-8deg);
+}
+
+.chalk-piece.white {
+  width: 28px;
+  background: linear-gradient(135deg, #e8e8e0, #ccccc4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.chalk-piece.yellow {
+  width: 24px;
+  background: linear-gradient(135deg, #e8c84a, #c8a830);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  transform: rotate(5deg);
+}
+
+.chalk-piece.short {
+  width: 14px;
+  transform: rotate(-15deg);
+}
+
+/* ===== Zoom bar ===== */
+.zoom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0 8px;
+  background: #000;
+}
+
+.zoom-btn {
+  background: rgba(40,40,40,0.9);
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  width: 46px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.zoom-btn.active {
+  background: rgba(50,50,50,0.95);
+  color: #f5c842;
+  font-weight: 700;
+}
+
+.zoom-btn:hover:not(.active) {
+  background: rgba(60,60,60,0.9);
+  color: #fff;
+}
+
+/* ===== Mode tabs ===== */
+.mode-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 14px 10px;
+  background: #000;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 2px;
+}
+
+.mode-tabs::-webkit-scrollbar { display: none; }
+
+.mode {
+  flex-shrink: 0;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: color 0.15s;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.mode.active {
+  color: #f5c842;
+  font-weight: 600;
+}
+
+.mode:hover:not(.active) {
+  color: rgba(255,255,255,0.9);
+}
+
+/* ===== Shutter row ===== */
+.shutter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px 20px;
+  background: #000;
+}
+
+/* Last photo thumbnail */
+.thumbnail {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: #2a2a2a;
+  border: 2px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* Shutter button */
+.shutter-btn {
+  width: 78px;
+  height: 78px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.shutter-btn::before {
+  content: '';
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  border: 3.5px solid rgba(255,255,255,0.9);
+}
+
+.shutter-ring {
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.1s, background 0.1s;
+}
+
+.shutter-btn:active .shutter-ring {
+  transform: scale(0.91);
+  background: rgba(255,255,255,0.82);
+}
+
+/* Flip button */
+.flip-btn {
+  width: 52px;
+  height: 52px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.88);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+}
+
+.flip-btn:hover { opacity: 0.6; }
+
+/* ===== Bottom nav bar ===== */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 60px 24px;
+  background: #000;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;
+}
+
+.nav-btn:hover { opacity: 0.5; }
+
+/* ===== Responsive — on small screens fill the viewport ===== */
+@media (max-width: 420px) {
+  body { background: #000; }
+  .phone-frame {
+    width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+  }
+}

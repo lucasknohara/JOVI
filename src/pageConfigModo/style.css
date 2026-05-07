@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* ── Wrapper principal ── */
+.phone {
+  width: 375px;
+  min-height: 780px;
+  background: #000;
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 80px rgba(0,0,0,0.8);
+}
+
+/* ── Header ── */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 14px;
+  background: #000;
+}
+
+.top-bar h2 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-fechar {
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  width: 28px;
+}
+
+.btn-salvar {
+  background: #f5e000;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Noto Sans', sans-serif;
+  cursor: pointer;
+}
+
+/* ── Conteúdo rolável ── */
+.conteudo {
+  flex: 1;
+  padding: 12px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+/* ── Cartões ── */
+.cartao {
+  background: #1c1c1c;
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+
+/* ── Campo nome ── */
+.campo-label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.campo-input {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #888;
+  font-size: 14px;
+  font-family: 'Noto Sans', sans-serif;
+  outline: none;
+}
+
+.campo-input:focus {
+  border-color: #f5e000;
+}
+
+/* ── Ícones ── */
+.icones-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.seta-nav {
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.icones-lista {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.icone-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icone-circulo {
+  width: 52px;
+  height: 52px;
+  border: 2px dashed #555;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.icone-circulo svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icone-item.ativo .icone-circulo {
+  border: 2px solid #f5e000;
+  background: #f5e000;
+}
+
+.icone-item.ativo .icone-circulo svg {
+  stroke: #000;
+}
+
+/* ── Seção titulo ── */
+.secao-titulo {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Sliders ── */
+.slider-grupo {
+  margin-bottom: 14px;
+}
+
+.slider-label {
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider-branco {
+  background: linear-gradient(to right, #fff 30%, #444 30%);
+}
+
+.slider-branco::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.slider-amarelo {
+  background: linear-gradient(to right, #f5e000 50%, #444 50%);
+}
+
+.slider-amarelo::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f5e000;
+  cursor: pointer;
+}
+
+.slider-marcas {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.slider-marcas span {
+  color: #666;
+  font-size: 11px;
+}
+
+/* ── Filtros visuais ── */
+.filtros-grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.filtro-item {
+  border-radius: 12px;
+  padding: 12px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.filtro-item svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.filtro-item span {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.filtro-natural {
+  background: #b8e0f0;
+}
+.filtro-natural svg { stroke: #1a7a9a; }
+.filtro-natural span { color: #1a7a9a; }
+
+.filtro-alto-contraste {
+  background: #2a2a2a;
+  border: 2px solid #f5e000;
+}
+.filtro-alto-contraste svg { stroke: #fff; }
+.filtro-alto-contraste span { color: #fff; }
+
+.filtro-suave {
+  background: #f5c8a8;
+}
+.filtro-suave svg { stroke: #a05030; }
+.filtro-suave span { color: #a05030; }
+
+/* ── Sliders duplos ── */
+.slider-duplo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slider-grupo-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-grupo-inline .slider-label {
+  min-width: 64px;
+  margin-bottom: 0;
+}
+
+.slider-grupo-inline .slider {
+  flex: 1;
+}
+
+/* ── Funções Especializadas ── */
+.funcao-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.funcao-item:last-child {
+  border-bottom: none;
+}
+
+.funcao-texto {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  flex: 1;
+}
+
+/* ── Toggle ── */
+.toggle {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: #444;
+  border-radius: 26px;
+  transition: background 0.2s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle input:checked + .toggle-slider {
+  background: #f5e000;
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* ── Checkbox quadrado ── */
+.checkbox-quadrado {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Bolinha amarela ── */
+.bolinha-amarela {
+  width: 14px;
+  height: 14px;
+  background: #f5e000;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Linha com botão Criar Modo ── */
+.funcao-com-botao {
+  justify-content: space-between;
+}
+
+.funcao-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-criar {
+  background: #f5e000;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Noto Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── Navegação do sistema ── */
+.nav-bar {
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 40px 18px;
+}
+
+.nav-bar svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
