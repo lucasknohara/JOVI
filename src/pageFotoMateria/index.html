@@ -1,171 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Camera UI</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface de Câmera - Modo Foto</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="phone-frame">
+    <div class="aplicativo-camera">
+        
+        <header class="barra-topo">
+            <img src="../img/camera.png" alt="Câmera" class="icone">
+            <img src="../img/trovao.png" alt="Flash" class="icone">
+            <img src="../img/sla.png" alt="Otimização" class="icone">
+            <div class="texto-zeiss">ZEISS</div>
+            <img src="../img/margarida-alternativa.png" alt="Macro" class="icone">
+            <img src="../img/definicoes.png" alt="Configurações" class="icone">
+        </header>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <button class="icon-btn" aria-label="Flip camera">
-        <!-- camera flip icon -->
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 7h-3.5l-1.5-2H9L7.5 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/>
-          <circle cx="12" cy="13" r="3"/>
-        </svg>
-      </button>
+        <main class="visualizacao-camera">
+            <img src="../img/Quadro-Matematica.png" alt="Preview" class="foto-preview">
+            
+            <div class="controles-zoom">
+                <span>0.5</span>
+                <span>1</span>
+                <span class="zoom-ativo">2x</span>
+            </div>
+            
+            <div class="botao-efeito">
+                <img src="../img/varinha-magica.png" alt="varinha">
+            </div>
+        </main>
 
-      <button class="icon-btn" aria-label="Flash">
-        <!-- lightning bolt -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-        </svg>
-      </button>
+        <footer class="area-inferior">
+            <nav class="seletor-modos">
+                <span>Estudo</span>
+                <span>Noite</span>
+                <span class="ativo">Foto</span>
+                <span>Vídeo</span>
+                <span>Retrato</span>
+                <span>Mais</span>
+            </nav>
 
-      <!-- Live Photo (circle with dot) -->
-      <button class="icon-btn live-photo" aria-label="Live Photo">
-        <span class="live-outer">
-          <span class="live-dot"></span>
-        </span>
-      </button>
+            <div class="linha-disparo">
+                <div class="previa-galeria"></div>
+                <div class="botao-disparador">
+                    <div class="circulo-interno"></div>
+                </div>
+                <img src="../img/atualizar.png" alt="Inverter" class="alternar-camera">
+            </div>
 
-      <!-- ZEISS label -->
-      <span class="zeiss-label">ZEISS</span>
+            <div class="navegacao-sistema">
+                <img src="../img/menu-hamburguer.png" alt="Abas" class="icone-nav">
+                <img src="../img/circulo.png" alt="Início" class="icone-nav">
+                <div class="icone-nav"> < </div>
+            </div>
+        </footer>
 
-      <!-- Macro / flower -->
-      <button class="icon-btn" aria-label="Macro">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 2a4 4 0 0 1 0 8 4 4 0 0 1 0-8Z" opacity=".5"/>
-          <path d="M12 14a4 4 0 0 1 0 8 4 4 0 0 1 0-8Z" opacity=".5"/>
-          <path d="M2 12a4 4 0 0 1 8 0 4 4 0 0 1-8 0Z" opacity=".5"/>
-          <path d="M14 12a4 4 0 0 1 8 0 4 4 0 0 1-8 0Z" opacity=".5"/>
-        </svg>
-      </button>
-
-      <!-- Settings -->
-      <button class="icon-btn" aria-label="Settings">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
-        </svg>
-      </button>
     </div>
-
-    <!-- Viewfinder / Chalkboard -->
-    <div class="viewfinder">
-      <div class="chalkboard">
-        <!-- Chalk drawings drawn with CSS + SVG -->
-        <svg class="chalk-svg" viewBox="0 0 380 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-
-          <!-- Top-left: (x+y) → (x²+2) -->
-          <text x="12" y="45" font-family="'Courier New', monospace" font-size="15" fill="rgba(255,255,255,0.65)">(x+y) → (x²+2)</text>
-
-          <!-- Left column, spaced out -->
-          <text x="12" y="85"  font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.6)">x² + y²</text>
-          <text x="12" y="120" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.6)">-3β² - 2β³</text>
-          <text x="12" y="152" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.55)">2(a)c</text>
-          <text x="12" y="188" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,255,255,0.65)">4x - √64</text>
-          <text x="12" y="350" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.55)">45·3 - 203</text>
-
-          <!-- Pyramid (centre) -->
-          <polygon points="185,100 130,210 240,210" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6"/>
-          <line x1="185" y1="100" x2="210" y2="168" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <line x1="185" y1="100" x2="155" y2="172" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <path d="M130,210 L112,226 L222,226 L240,210" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
-          <text x="124" y="242" font-family="'Courier New', monospace" font-size="11" fill="rgba(255,255,255,0.5)">A</text>
-          <text x="232" y="242" font-family="'Courier New', monospace" font-size="11" fill="rgba(255,255,255,0.5)">B</text>
-
-          <!-- E = mc² below pyramid -->
-          <text x="148" y="285" font-family="'Courier New', monospace" font-size="22" fill="rgba(255,255,255,0.85)" font-style="italic">E = mc²</text>
-
-          <!-- Right column, spaced out -->
-          <text x="268" y="55"  font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.55)">7(z-23)</text>
-          <text x="258" y="95"  font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.6)">B(x - 2²)</text>
-          <text x="268" y="135" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,255,255,0.5)">√64</text>
-          <text x="252" y="175" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,255,255,0.45)">1+1 = 20</text>
-          <text x="258" y="310" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.5)">(4·2²)</text>
-
-          <!-- Eraser smudge -->
-          <rect x="130" y="378" width="110" height="22" fill="rgba(200,200,180,0.10)" rx="3"/>
-        </svg>
-
-        <!-- Chalk dust / texture overlay -->
-        <div class="chalk-dust"></div>
-
-        <!-- Chalk at bottom -->
-        <div class="chalk-pieces">
-          <span class="chalk-piece white"></span>
-          <span class="chalk-piece yellow"></span>
-          <span class="chalk-piece white short"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Zoom Controls -->
-    <div class="zoom-bar">
-      <button class="zoom-btn">0.5</button>
-      <button class="zoom-btn">1</button>
-      <button class="zoom-btn active">2x</button>
-    </div>
-
-    <!-- Mode Tabs -->
-    <div class="mode-tabs">
-      <span class="mode active">Estudo</span>
-      <span class="mode">Noite</span>
-      <span class="mode">Foto</span>
-      <span class="mode">Video</span>
-      <span class="mode">Retrato</span>
-      <span class="mode">Mais</span>
-    </div>
-
-    <!-- Shutter Row -->
-    <div class="shutter-row">
-      <!-- Thumbnail -->
-      <div class="thumbnail"></div>
-
-      <!-- Shutter button -->
-      <button class="shutter-btn" aria-label="Tirar foto">
-        <span class="shutter-ring"></span>
-      </button>
-
-      <!-- Flip camera -->
-      <button class="flip-btn" aria-label="Virar câmera">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 4v6h6"/>
-          <path d="M23 20v-6h-6"/>
-          <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Bottom Nav Bar -->
-    <div class="nav-bar">
-      <button class="nav-btn" aria-label="Menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
-      <button class="nav-btn" aria-label="Home">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="12" cy="12" r="10"/>
-        </svg>
-      </button>
-      <button class="nav-btn" aria-label="Back">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"/>
-        </svg>
-      </button>
-    </div>
-
-  </div>
 
 </body>
 </html>

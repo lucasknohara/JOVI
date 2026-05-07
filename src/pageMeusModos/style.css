@@ -1,145 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: #000;
+  background-color: #121212;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  font-family: 'Noto Sans', sans-serif;
+  height: 100vh;
 }
 
-/* ── Wrapper principal ── */
-.phone {
-  width: 375px;
-  min-height: 780px;
-  background: #000;
-  border-radius: 40px;
-  overflow: hidden;
+/* --- ESTRUTURA PADRÃO (BASE) --- */
+.aplicativo-camera {
+  width: 375px; 
+  height: 812px; /* Altura padrão da base */
+  background-color: #000;
+  position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  border: 8px solid #333; 
+  border-radius: 40px;
 }
 
-/* ── Header ── */
-.top-bar {
+/* --- HEADER ALINHADO --- */
+.barra-topo-editar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px 16px;
+  padding: 50px 24px 20px; /* Padding superior de 50px como na base */
   background: #000;
 }
 
-.top-bar h2 {
+.barra-topo-editar h2 {
   color: #fff;
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
+  font-weight: 600;
 }
 
-.btn-fechar,
-.btn-confirmar {
+.btn-topo {
   color: #fff;
   font-size: 20px;
-  font-weight: 400;
   cursor: pointer;
-  width: 28px;
-  text-align: center;
 }
 
-/* ── Área de conteúdo ── */
-.conteudo {
-  flex: 1;
-  padding: 16px 16px 20px;
+/* --- CONTEÚDO --- */
+.conteudo-principal {
+  flex-grow: 1;
+  padding: 10px 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
-/* ── Títulos de seção ── */
 .secao-titulo {
-  color: #aaa;
+  color: #AAAAAA;
   font-size: 13px;
-  font-weight: 400;
-  padding: 4px 2px;
+  padding-left: 5px;
 }
 
-/* ── Cartões ── */
 .cartao {
   background: #1c1c1c;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.cartao-vazio {
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 110px;
+}
+
+.cartao-vazio {
+  height: 120px;
 }
 
 .texto-vazio {
   color: #fff;
   font-size: 17px;
   font-weight: 700;
-  text-align: center;
 }
 
 .cartao-modos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
+  height: 220px;
 }
 
-/* ── Botão criar ── */
-.botao-criar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f5e000;
-  color: #000;
+/* --- BOTÃO PADRÃO --- */
+.botao-amarelo {
+  background-color: #ffd600;
   border: none;
-  border-radius: 30px;
-  padding: 14px 28px;
+  padding: 14px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  color: #000;
   font-size: 15px;
-  font-weight: 700;
-  font-family: 'Noto Sans', sans-serif;
   cursor: pointer;
-  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.botao-criar:hover {
-  background: #e0ce00;
-}
-
-.icone-engrenagem {
+.icone-btn {
   width: 20px;
   height: 20px;
-  flex-shrink: 0;
 }
 
-/* ── Navegação do sistema ── */
-.nav-bar {
-  background: #000;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 12px 40px 18px;
-}
-
-.nav-bar svg {
-  width: 22px;
-  height: 22px;
-  stroke: #fff;
-  stroke-width: 1.8;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+/* --- NAVEGAÇÃO DO SISTEMA (IGUAL À BASE) --- */
+.navegacao-sistema {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #000;
+    position: relative;
+    z-index: 20; 
 }
