@@ -23,7 +23,7 @@
     
     <div class="cartao">
       <label class="campo-label">Nome do modo</label>
-      <input class="campo-input" type="text" placeholder="Escreva o Nome Aqui...">
+      <input class="campo-input" id="campoNome" type="text" placeholder="Escreva o Nome Aqui...">
     </div>
 
     <div class="cartao">
@@ -33,28 +33,28 @@
         <div class="icones-lista">
           
           <label class="icone-opcao">
-            <input type="radio" name="selecao-icone" class="icone-input">
+            <input type="radio" name="selecao-icone" class="icone-input" value="../img/modo-paisagem.png">
             <div class="icone-circulo">
                <img src="../img/modo-paisagem.png" alt="Icon">
             </div>
           </label>
 
           <label class="icone-opcao">
-            <input type="radio" name="selecao-icone" class="icone-input">
+            <input type="radio" name="selecao-icone" class="icone-input" value="../img/trovao.png">
             <div class="icone-circulo">
                <img src="../img/trovao.png" alt="Icon">
             </div>
           </label>
 
           <label class="icone-opcao">
-            <input type="radio" name="selecao-icone" class="icone-input">
+            <input type="radio" name="selecao-icone" class="icone-input" value="../img/procurar.png">
             <div class="icone-circulo">
                <img src="../img/procurar.png" alt="Icon">
             </div>
           </label>
 
           <label class="icone-opcao">
-            <input type="radio" name="selecao-icone" class="icone-input">
+            <input type="radio" name="selecao-icone" class="icone-input" value="../img/marcador-de-livro.png">
             <div class="icone-circulo">
                <img src="../img/marcador-de-livro.png" alt="Icon">
             </div>
@@ -129,7 +129,7 @@
     </div>
 
     <div class="container-btn-criar">
-        <button class="btn-criar">Criar Modo</button>
+        <button class="btn-criar" id="btnCriar">Criar Modo</button>
     </div>
 
   </main>
@@ -142,5 +142,6 @@
 
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
